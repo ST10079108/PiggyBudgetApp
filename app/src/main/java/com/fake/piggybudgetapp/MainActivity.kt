@@ -1,0 +1,140 @@
+package com.fake.piggybudgetapp
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.fake.piggybudgetapp.databinding.ActivityMainBinding
+import com.fake.piggybudgetapp.database.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        // View Binding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Insert preload data into DB
+        insertUsers()
+        insertBudgets()
+        insertTransactions()
+        insertCategories()
+
+        binding.btnSignIn.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+
+    }
+
+    // Insert hardcoded data into database
+    private fun insertUsers() {
+        CoroutineScope(Dispatchers.IO).launch {
+            FirebaseDbHelper.getAllUsers { userList ->
+                if (userList.isEmpty()) {
+                    val users = listOf(
+                        UserEntity(username = "User", password = "U4")
+                    )
+                    users.forEach { user ->
+                        FirebaseDbHelper.insertUser(user)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun insertCategories() {
+        CoroutineScope(Dispatchers.IO).launch {
+            FirebaseDbHelper.getAllCategories { catList ->
+                if (catList.isEmpty()) {
+                    val categories = listOf(
+                        CategoryEntity(name = "Groceries"),
+                        CategoryEntity(name = "Food"),
+                        CategoryEntity(name = "Gym"),
+                        CategoryEntity(name = "Salary")
+                    )
+                    categories.forEach { category ->
+                        FirebaseDbHelper.insertCategory(category)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun insertBudgets() {
+        CoroutineScope(Dispatchers.IO).launch {
+            FirebaseDbHelper.getAllBudgets { budgetList ->
+                if (budgetList.isEmpty()) {
+                    val budgets = listOf(
+                        BudgetEntity(name = "Budget 1", amount = 2000.0, category = "Groceries"),
+                        BudgetEntity(name = "Budget 2", amount = 1000.0, category = "Food"),
+                        BudgetEntity(name = "Budget 3", amount = 1500.0, category = "Gym")
+                    )
+                    budgets.forEach { budget ->
+                        FirebaseDbHelper.insertBudget(budget)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun insertTransactions() {
+        CoroutineScope(Dispatchers.IO).launch {
+            FirebaseDbHelper.getAllTransactions { transList ->
+                if (transList.isEmpty()) {
+                    val transactions = listOf(
+                        TransactionEntity(
+                            type = "Expense",
+                            amount = 200.0,
+                            date = "2025-05-24",
+                            description = "Makro",
+                            recurrence = "Monthly",
+                            category = "Groceries",
+                            imageUrl = ""
+                        ),
+                        TransactionEntity(
+                            type = "Expense",
+                            amount = 100.0,
+                            date = "2025-08-13",
+                            description = "Mcdonalds",
+                            recurrence = "Monthly",
+                            category = "Food",
+                            imageUrl = ""
+                        ),
+                        TransactionEntity(
+                            type = "Expense",
+                            amount = 150.0,
+                            date = "2025-05-24",
+                            description = "Ignite Fitness",
+                            recurrence = "Monthly",
+                            category = "Gym",
+                            imageUrl = ""
+                        ),
+                        TransactionEntity(
+                            type = "Income",
+                            amount = 10000.0,
+                            date = "2025-10-09",
+                            description = "Salary",
+                            recurrence = "Monthly",
+                            category = "Salary",
+                            imageUrl = ""
+                        )
+                    )
+                    transactions.forEach { transaction ->
+                        FirebaseDbHelper.insertTransaction(transaction, null)
+                    }
+                }
+            }
+        }
+    }
+}

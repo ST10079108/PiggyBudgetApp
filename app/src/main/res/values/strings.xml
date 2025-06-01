@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PiggyApp</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+    <string-array name="Recurrence">
+        <item>Annually</item>
+        <item>Monthly</item>
+        <item>Weekly</item>
+        <item>Never</item>
+    </string-array>
+
+    <string-array name="Type">
+        <item>Income</item>
+        <item>Expense</item>
+    </string-array>
+</resources>

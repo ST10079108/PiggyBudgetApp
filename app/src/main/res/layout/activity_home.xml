@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <!-- Main content with Toolbar and your layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Home"
+            app:titleTextColor="@android:color/white"/>
+
+        <!-- Your existing layout content -->
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Insert your current ConstraintLayout here -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:text="Home"
+
+                            android:textSize="24sp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <ScrollView
+                        android:layout_width="330dp"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:paddingBottom="45dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="15dp"
+                                android:layout_weight="1" />
+
+
+
+                            <TextView
+                                android:id="@+id/tvUsername"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Username"
+                                android:textAlignment="center"
+                                android:textSize="16sp" />
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="15dp"
+                                android:layout_weight="1" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                app:cardCornerRadius="15dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="15dp" />
+
+                                    <TextView
+                                        android:id="@+id/txtBalance"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:text="Balance"
+                                        android:textSize="24sp" />
+
+                                    <TextView
+                                        android:id="@+id/tvBalanceAmount"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:text="R0"
+                                        android:textSize="20sp" />
+
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="15dp" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtIncome"
+                                            android:layout_width="165dp"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center_horizontal|center_vertical"
+                                            android:text="Income" />
+
+                                        <TextView
+                                            android:id="@+id/tvIncomeAmount"
+                                            android:layout_width="165dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center_horizontal|center_vertical"
+                                            android:text="R0" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtExpenses"
+                                            android:layout_width="165dp"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center_horizontal|center_vertical"
+                                            android:text="Expenses" />
+
+                                        <TextView
+                                            android:id="@+id/tvExpensesAmount"
+                                            android:layout_width="165dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center_horizontal|center_vertical"
+                                            android:text="R0" />
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/txtGoal"
+                                            android:layout_width="165dp"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center_horizontal|center_vertical"
+                                            android:text="Goal" />
+
+                                        <TextView
+                                            android:id="@+id/tvGoalAmount"
+                                            android:layout_width="165dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center_horizontal|center_vertical"
+                                            android:text="Unset" />
+                                    </LinearLayout>
+
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="15dp" />
+                                </LinearLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="15dp" />
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cvGoal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="15dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="15dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvMin"
+                                        android:layout_width="262dp"
+                                        android:layout_height="wrap_content"
+                                        android:text="Minimum Amount"
+                                        android:textAlignment="textStart"
+
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <EditText
+                                        android:id="@+id/etMin"
+                                        android:layout_width="266dp"
+                                        android:layout_height="52dp"
+                                        android:layout_marginBottom="15dp"
+
+                                        android:ems="10"
+                                        android:hint="R2000"
+                                        android:inputType="number"
+                                        android:paddingLeft="10dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvMax"
+                                        android:layout_width="262dp"
+                                        android:layout_height="wrap_content"
+                                        android:text="Maximum Amount"
+                                        android:textAlignment="textStart"
+
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+                                    <EditText
+                                        android:id="@+id/etMax"
+                                        android:layout_width="266dp"
+                                        android:layout_height="52dp"
+                                        android:layout_marginBottom="15dp"
+
+                                        android:ems="10"
+                                        android:hint="R6000"
+                                        android:inputType="number"
+                                        android:paddingLeft="10dp" />
+
+                                    <Button
+                                        android:id="@+id/btnSaveGoal"
+                                        android:layout_width="180dp"
+                                        android:layout_height="64dp"
+
+                                        android:text="Save"
+                                        android:textSize="15sp" />
+
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="15dp" />
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="15dp" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="165dp"
+                                app:cardCornerRadius="15dp">
+
+                            </androidx.cardview.widget.CardView>
+
+                            <Space
+                                android:layout_width="wrap_content"
+                                android:layout_height="500dp" />
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </LinearLayout>
+                    </ScrollView>
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+
+        />
+
+</androidx.drawerlayout.widget.DrawerLayout>

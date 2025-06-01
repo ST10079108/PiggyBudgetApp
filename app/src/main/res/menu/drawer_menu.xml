@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_menu_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_menu_profile"
+        android:title="Profile" />
+    <item
+        android:id="@+id/nav_budgets"
+        android:icon="@drawable/ic_menu_budgets"
+        android:title="Budgets" />
+
+    <item
+        android:id="@+id/nav_transactions"
+        android:icon="@drawable/ic_menu_transactions"
+        android:title="Transactions" />
+    <item
+        android:id="@+id/nav_stats"
+        android:icon="@drawable/ic_menu_stats"
+        android:title="Stats" />
+    <item
+        android:id="@+id/nav_categories"
+        android:icon="@drawable/ic_main_menu"
+        android:title="Categories" />
+    <item
+        android:id="@+id/nav_cat_totals"
+        android:title="Category Totals" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout" />
+
+</menu>
