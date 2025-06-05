@@ -120,16 +120,25 @@ class TransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
             val intent = Intent(this, TransactionHistory::class.java)
             startActivity(intent)
+
+            // reset input fields
+            binding.etTransactionAmount.setText("")
+            binding.etCategory.setText("")
+            binding.etDescription.setText("")
         }
 
         binding.btnSelectCategory.setOnClickListener {
             val intent = Intent(this, CategoryHistory::class.java)
             catResultLauncher.launch(intent)
         }
-
+        binding.etCategory.setOnClickListener {
+            val intent = Intent(this, CategoryHistory::class.java)
+            catResultLauncher.launch(intent)
+        }
         binding.btnSelectImage.setOnClickListener {
             pickImageLauncher.launch("image/*")
         }
+
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

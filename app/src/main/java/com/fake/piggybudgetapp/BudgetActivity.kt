@@ -60,6 +60,10 @@ class BudgetActivity : AppCompatActivity() {
             }
 
             Toast.makeText(this, "Budget saved to history!", Toast.LENGTH_SHORT).show()
+            // reset input fields
+            binding.etAmount.setText("")
+            binding.etCategory.setText("")
+            binding.etBudgetName.setText("")
         }
 
         binding.btnMyBudgets.setOnClickListener {

@@ -44,6 +44,7 @@ class CategoryActivity : AppCompatActivity() {
             }
 
             Toast.makeText(this, "Category saved to history!", Toast.LENGTH_SHORT).show()
+            binding.etCategoryName.setText("")
         }
 
         binding.btnMyCategories.setOnClickListener {
