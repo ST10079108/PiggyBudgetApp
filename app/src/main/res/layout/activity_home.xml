@@ -44,6 +44,7 @@
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -53,8 +54,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        >
+                        android:layout_height="45dp">
 
                         <TextView
                             android:id="@+id/textView5"
@@ -77,11 +77,47 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="15dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="590dp"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/ivPiggy"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="349dp"
+                                        app:srcCompat="@drawable/grinning" />
+
+                                    <TextView
+                                        android:id="@+id/etPiggy"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:gravity="start|top"
+                                        android:inputType="textMultiLine"
+                                        android:paddingHorizontal="50dp"
+                                        android:text="Welcome to PIGGY PAL! This is the home screen. Scroll down or press DONE to see your balance and aachievements." />
+
+                                    <Button
+                                        android:id="@+id/btnDone"
+                                        android:layout_width="100dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginTop="25dp"
+                                        android:text="DONE"
+                                        android:textSize="15sp" />
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
                             <Space
                                 android:layout_width="match_parent"
                                 android:layout_height="15dp"
                                 android:layout_weight="1" />
-
 
 
                             <TextView
@@ -290,9 +326,178 @@
 
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
-                                android:layout_height="165dp"
+                                android:layout_height="wrap_content"
                                 app:cardCornerRadius="15dp">
 
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Achievements"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="8dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/imageView3"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginEnd="8dp"
+                                            app:srcCompat="@drawable/bronze" />
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Bronze"
+                                                android:textStyle="bold"
+                                                android:textSize="16sp"
+                                                android:layout_marginBottom="4dp"/>
+
+                                            <ProgressBar
+                                                android:id="@+id/pbBronze"
+                                                style="?android:attr/progressBarStyleHorizontal"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="16dp"
+                                                android:max="1"
+                                                android:progress="0" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="8dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/imageView4"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginEnd="8dp"
+                                            app:srcCompat="@drawable/silver" />
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Silver"
+                                                android:textStyle="bold"
+                                                android:textSize="16sp"
+                                                android:layout_marginBottom="4dp"/>
+
+                                            <ProgressBar
+                                                android:id="@+id/pbSilver"
+                                                style="?android:attr/progressBarStyleHorizontal"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="16dp"
+                                                android:max="1"
+                                                android:progress="0" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="8dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/imageView5"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginEnd="8dp"
+                                            app:srcCompat="@drawable/gold" />
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Gold"
+                                                android:textStyle="bold"
+                                                android:textSize="16sp"
+                                                android:layout_marginBottom="4dp"/>
+
+                                            <ProgressBar
+                                                android:id="@+id/pbGold"
+                                                style="?android:attr/progressBarStyleHorizontal"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="16dp"
+                                                android:max="1"
+                                                android:progress="0" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="10dp"/>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="8dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:id="@+id/imageView6"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_marginEnd="8dp"
+                                            app:srcCompat="@drawable/elite" />
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="Elite"
+                                                android:textStyle="bold"
+                                                android:textSize="16sp"
+                                                android:layout_marginBottom="4dp"/>
+
+                                            <ProgressBar
+                                                android:id="@+id/pbElite"
+                                                style="?android:attr/progressBarStyleHorizontal"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="16dp"
+                                                android:max="1"
+                                                android:progress="0" />
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
                             </androidx.cardview.widget.CardView>
 
                             <Space

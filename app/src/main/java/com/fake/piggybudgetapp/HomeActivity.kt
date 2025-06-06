@@ -138,12 +138,44 @@ class HomeActivity : AppCompatActivity() {
                 binding.tvBalanceAmount.text = "R ${(inTotal - exTotal)}"
             }
         }
+        loadAchievements()
     } //end of onCreate
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             true
         } else super.onOptionsItemSelected(item)
+    }
+
+    private fun loadAchievements() {
+        // Bronze
+        FirebaseDbHelper.getAllGoals { goals ->
+            val bronzeProgress = goals.size
+            runOnUiThread {
+                binding.pbBronze.max = 1
+                binding.pbBronze.progress = bronzeProgress.coerceAtMost(1)
+            }
+        }
+
+        // Silver - Number of Budgets (assuming you have budgets)
+        FirebaseDbHelper.getAllBudgets { budgets ->
+            val silverProgress = budgets.size
+            runOnUiThread {
+                binding.pbSilver.max = 5
+                binding.pbSilver.progress = silverProgress.coerceAtMost(5)
+            }
+        }
+
+        // Gold
+        FirebaseDbHelper.getAllTransactions { transactions ->
+            val goldProgress = transactions.size
+            runOnUiThread {
+                binding.pbGold.max = 10
+                binding.pbGold.progress = goldProgress.coerceAtMost(10)
+            }
+        }
+
+        // Elite
     }
 
 }
