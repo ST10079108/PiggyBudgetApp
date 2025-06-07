@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="@color/piggy_pink"
     tools:context=".ProfileActivity">
 
     <LinearLayout
@@ -23,8 +24,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            >
+            android:layout_height="45dp">
 
             <TextView
                 android:id="@+id/textView6"
@@ -69,6 +69,7 @@
             android:text="Password"
             android:textColor="#fff"
             android:textSize="18sp" />
+
         <TextView
             android:id="@+id/txtMinGoal"
             android:layout_width="330dp"

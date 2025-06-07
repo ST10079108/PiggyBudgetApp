@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="@color/piggy_pink"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -19,22 +20,6 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardLogin"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            >
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:text="Login"
-
-                android:textSize="24sp" />
-        </androidx.cardview.widget.CardView>
 
         <Space
             android:layout_width="match_parent"
@@ -58,7 +43,6 @@
             android:gravity="center_horizontal|center_vertical"
             android:hint="usename"
             android:inputType="text" />
-
 
 
         <TextView

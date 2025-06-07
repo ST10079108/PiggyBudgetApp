@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/piggy_pink"
     tools:context=".HomeActivity">
 
     <!-- Main content with Toolbar and your layout -->
@@ -20,9 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            android:gravity="center_horizontal"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:title="Home"
-            app:titleTextColor="@android:color/white"/>
+            app:titleTextColor="@android:color/white" />
 
         <!-- Your existing layout content -->
         <FrameLayout
@@ -48,24 +49,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="15dp" />
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp">
-
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:text="Home"
-
-                            android:textSize="24sp" />
-                    </androidx.cardview.widget.CardView>
-
                     <ScrollView
                         android:layout_width="330dp"
                         android:layout_height="match_parent"
@@ -77,28 +60,35 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="15dp" />
+
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="400dp"
+                                android:layout_gravity="center_horizontal"
                                 app:cardCornerRadius="15dp">
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="590dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_horizontal"
                                     android:orientation="vertical">
 
                                     <ImageView
                                         android:id="@+id/ivPiggy"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="349dp"
+                                        android:layout_width="241dp"
+                                        android:layout_height="245dp"
                                         app:srcCompat="@drawable/grinning" />
 
                                     <TextView
                                         android:id="@+id/etPiggy"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
                                         android:ems="10"
-                                        android:gravity="start|top"
+                                        android:gravity="center_horizontal"
                                         android:inputType="textMultiLine"
                                         android:paddingHorizontal="50dp"
                                         android:text="Welcome to PIGGY PAL! This is the home screen. Scroll down or press DONE to see your balance and aachievements." />
@@ -107,7 +97,9 @@
                                         android:id="@+id/btnDone"
                                         android:layout_width="100dp"
                                         android:layout_height="50dp"
+                                        android:layout_gravity="center_horizontal"
                                         android:layout_marginTop="25dp"
+                                        android:gravity="center_horizontal|center_vertical"
                                         android:text="DONE"
                                         android:textSize="15sp" />
                                 </LinearLayout>
@@ -308,7 +300,7 @@
                                     <Button
                                         android:id="@+id/btnSaveGoal"
                                         android:layout_width="180dp"
-                                        android:layout_height="64dp"
+                                        android:layout_height="50dp"
 
                                         android:text="Save"
                                         android:textSize="15sp" />
@@ -334,17 +326,24 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
 
+                                    <Space
+                                        android:layout_width="match_parent"
+                                        android:layout_height="10dp" />
+
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Achievements"/>
+                                        android:layout_gravity="center_horizontal"
+                                        android:gravity="center_horizontal"
+                                        android:text="Achievements"
+                                        android:textSize="18sp" />
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
                                         android:orientation="horizontal"
-                                        android:padding="8dp"
-                                        android:gravity="center_vertical">
+                                        android:padding="8dp">
 
                                         <ImageView
                                             android:id="@+id/imageView3"
@@ -362,10 +361,10 @@
                                             <TextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
+                                                android:layout_marginBottom="4dp"
                                                 android:text="Bronze - Add a goal"
-                                                android:textStyle="bold"
                                                 android:textSize="16sp"
-                                                android:layout_marginBottom="4dp"/>
+                                                android:textStyle="bold" />
 
                                             <ProgressBar
                                                 android:id="@+id/pbBronze"
@@ -376,15 +375,17 @@
                                                 android:progress="0" />
                                         </LinearLayout>
                                     </LinearLayout>
+
                                     <Space
                                         android:layout_width="match_parent"
-                                        android:layout_height="10dp"/>
+                                        android:layout_height="10dp" />
+
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
                                         android:orientation="horizontal"
-                                        android:padding="8dp"
-                                        android:gravity="center_vertical">
+                                        android:padding="8dp">
 
                                         <ImageView
                                             android:id="@+id/imageView4"
@@ -402,10 +403,10 @@
                                             <TextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
+                                                android:layout_marginBottom="4dp"
                                                 android:text="Silver - Create 5 budgets"
-                                                android:textStyle="bold"
                                                 android:textSize="16sp"
-                                                android:layout_marginBottom="4dp"/>
+                                                android:textStyle="bold" />
 
                                             <ProgressBar
                                                 android:id="@+id/pbSilver"
@@ -416,15 +417,17 @@
                                                 android:progress="0" />
                                         </LinearLayout>
                                     </LinearLayout>
+
                                     <Space
                                         android:layout_width="match_parent"
-                                        android:layout_height="10dp"/>
+                                        android:layout_height="10dp" />
+
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
                                         android:orientation="horizontal"
-                                        android:padding="8dp"
-                                        android:gravity="center_vertical">
+                                        android:padding="8dp">
 
                                         <ImageView
                                             android:id="@+id/imageView5"
@@ -442,10 +445,10 @@
                                             <TextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
+                                                android:layout_marginBottom="4dp"
                                                 android:text="Gold - Make 5 transactions"
-                                                android:textStyle="bold"
                                                 android:textSize="16sp"
-                                                android:layout_marginBottom="4dp"/>
+                                                android:textStyle="bold" />
 
                                             <ProgressBar
                                                 android:id="@+id/pbGold"
@@ -456,15 +459,17 @@
                                                 android:progress="0" />
                                         </LinearLayout>
                                     </LinearLayout>
+
                                     <Space
                                         android:layout_width="match_parent"
-                                        android:layout_height="10dp"/>
+                                        android:layout_height="10dp" />
+
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
+                                        android:gravity="center_vertical"
                                         android:orientation="horizontal"
-                                        android:padding="8dp"
-                                        android:gravity="center_vertical">
+                                        android:padding="8dp">
 
                                         <ImageView
                                             android:id="@+id/imageView6"
@@ -482,10 +487,10 @@
                                             <TextView
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
+                                                android:layout_marginBottom="4dp"
                                                 android:text="Elite - Create 10 categories"
-                                                android:textStyle="bold"
                                                 android:textSize="16sp"
-                                                android:layout_marginBottom="4dp"/>
+                                                android:textStyle="bold" />
 
                                             <ProgressBar
                                                 android:id="@+id/pbElite"
@@ -525,8 +530,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/drawer_menu"
+        android:background="@color/piggy_white"
 
-        />
+        app:menu="@menu/drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="@color/piggy_pink"
     tools:context=".StatsActivity">
 
     <LinearLayout
@@ -23,8 +24,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            >
+            android:layout_height="45dp">
 
             <TextView
                 android:id="@+id/txtTransacions"
@@ -163,7 +163,6 @@
         </ScrollView>
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

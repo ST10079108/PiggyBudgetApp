@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="@color/piggy_pink"
     tools:context=".TransactionActivity">
 
     <LinearLayout
@@ -23,8 +24,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            >
+            android:layout_height="45dp">
 
             <TextView
                 android:id="@+id/textView10"
@@ -91,8 +91,7 @@
                 android:id="@+id/spType"
                 android:layout_width="165dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <Space
@@ -119,13 +118,13 @@
                 android:layout_width="165dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:cursorVisible="false"
                 android:ems="10"
+                android:focusable="false"
                 android:gravity="center_horizontal|center_vertical"
                 android:hint="Groceries"
-                android:focusable="false"
-                android:clickable="true"
-                android:inputType="none"
-                android:cursorVisible="false" />
+                android:inputType="none" />
         </LinearLayout>
 
         <Space
@@ -200,8 +199,7 @@
                 android:id="@+id/spRecurrence"
                 android:layout_width="165dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <Space
@@ -285,8 +283,7 @@
             android:id="@+id/btnAddTransaction"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:text="Add"
-            />
+            android:text="Add" />
 
 
     </LinearLayout>
