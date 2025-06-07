@@ -2,11 +2,13 @@ package com.fake.piggybudgetapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.fake.piggybudgetapp.database.*
 import androidx.core.view.GravityCompat
@@ -91,6 +93,8 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        loadAchievements()
+
         binding.btnSaveGoal.setOnClickListener{
             //Get user input
             val gmin = binding.etMin.text.toString().trim().toDoubleOrNull() ?: 0.0
@@ -121,6 +125,7 @@ class HomeActivity : AppCompatActivity() {
 
             val intent = Intent(this, BudgetActivity::class.java)
             startActivity(intent)
+            loadAchievements()
         }
 
         lifecycleScope.launch {
@@ -149,20 +154,28 @@ class HomeActivity : AppCompatActivity() {
 
     private fun loadAchievements() {
         // Bronze
+        Log.d("ACHIEVEMENTS", "Calling getAllGoals...")
         FirebaseDbHelper.getAllGoals { goals ->
+            Log.d("ACHIEVEMENTS", "Goals fetched: ${goals.size}")
             val bronzeProgress = goals.size
             runOnUiThread {
                 binding.pbBronze.max = 1
                 binding.pbBronze.progress = bronzeProgress.coerceAtMost(1)
+                if (binding.pbBronze.progress == binding.pbBronze.max) {
+                    showAchievementDialog("Bronze")
+                }
             }
         }
 
-        // Silver - Number of Budgets (assuming you have budgets)
+        // Silver
         FirebaseDbHelper.getAllBudgets { budgets ->
             val silverProgress = budgets.size
             runOnUiThread {
                 binding.pbSilver.max = 5
                 binding.pbSilver.progress = silverProgress.coerceAtMost(5)
+                if (binding.pbSilver.progress == binding.pbSilver.max) {
+                    showAchievementDialog("Silver")
+                }
             }
         }
 
@@ -170,12 +183,33 @@ class HomeActivity : AppCompatActivity() {
         FirebaseDbHelper.getAllTransactions { transactions ->
             val goldProgress = transactions.size
             runOnUiThread {
-                binding.pbGold.max = 10
-                binding.pbGold.progress = goldProgress.coerceAtMost(10)
+                binding.pbGold.max = 5
+                binding.pbGold.progress = goldProgress.coerceAtMost(5)
+                if (binding.pbGold.progress == binding.pbGold.max) {
+                    showAchievementDialog("Gold")
+                }
             }
         }
 
         // Elite
+        FirebaseDbHelper.getAllCategories { categories ->
+            val eliteProgress = categories.size
+            runOnUiThread {
+                binding.pbElite.max = 10
+                binding.pbElite.progress = eliteProgress.coerceAtMost(10)
+                if (binding.pbElite.progress == binding.pbElite.max) {
+                    showAchievementDialog("Elite")
+                }
+            }
+        }
+    }
+
+    private fun showAchievementDialog(achievement: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Achievement Unlocked!")
+            .setMessage("You've unlocked the $achievement achievement!")
+            .setPositiveButton("Nice!") { dialog, _ -> dialog.dismiss() }
+            .show()
     }
 
 }

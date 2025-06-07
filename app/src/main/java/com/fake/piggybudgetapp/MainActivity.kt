@@ -59,8 +59,6 @@ class MainActivity : AppCompatActivity() {
                 if (catList.isEmpty()) {
                     val categories = listOf(
                         CategoryEntity(name = "Groceries"),
-                        CategoryEntity(name = "Food"),
-                        CategoryEntity(name = "Gym"),
                         CategoryEntity(name = "Salary")
                     )
                     categories.forEach { category ->
@@ -76,9 +74,7 @@ class MainActivity : AppCompatActivity() {
             FirebaseDbHelper.getAllBudgets { budgetList ->
                 if (budgetList.isEmpty()) {
                     val budgets = listOf(
-                        BudgetEntity(name = "Budget 1", amount = 2000.0, category = "Groceries"),
-                        BudgetEntity(name = "Budget 2", amount = 1000.0, category = "Food"),
-                        BudgetEntity(name = "Budget 3", amount = 1500.0, category = "Gym")
+                        BudgetEntity(name = "Budget 1", amount = 200.0, category = "Groceries")
                     )
                     budgets.forEach { budget ->
                         FirebaseDbHelper.insertBudget(budget)
@@ -95,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                     val transactions = listOf(
                         TransactionEntity(
                             type = "Expense",
-                            amount = 200.0,
+                            amount = 90.0,
                             date = "2025-05-24",
                             description = "Makro",
                             recurrence = "Monthly",
@@ -103,28 +99,10 @@ class MainActivity : AppCompatActivity() {
                             imageUrl = ""
                         ),
                         TransactionEntity(
-                            type = "Expense",
-                            amount = 100.0,
-                            date = "2025-08-13",
-                            description = "Mcdonalds",
-                            recurrence = "Monthly",
-                            category = "Food",
-                            imageUrl = ""
-                        ),
-                        TransactionEntity(
-                            type = "Expense",
+                            type = "Income",
                             amount = 150.0,
                             date = "2025-05-24",
-                            description = "Ignite Fitness",
-                            recurrence = "Monthly",
-                            category = "Gym",
-                            imageUrl = ""
-                        ),
-                        TransactionEntity(
-                            type = "Income",
-                            amount = 10000.0,
-                            date = "2025-10-09",
-                            description = "Salary",
+                            description = "Microsoft",
                             recurrence = "Monthly",
                             category = "Salary",
                             imageUrl = ""
