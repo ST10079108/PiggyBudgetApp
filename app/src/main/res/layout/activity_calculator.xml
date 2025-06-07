@@ -9,7 +9,7 @@
     android:padding="16dp"
     tools:context=".CalculatorActivity">
 
-    <!-- White input box slightly lower -->
+   
     <Space
         android:layout_width="match_parent"
         android:layout_height="32dp" />
@@ -26,7 +26,6 @@
         android:padding="16dp"
         android:layout_marginBottom="32dp" />
 
-    <!-- Buttons slightly lower using weight -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
