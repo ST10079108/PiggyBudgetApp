@@ -26,6 +26,7 @@ import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.util.Log
 
 class TransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -147,13 +148,13 @@ class TransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         binding.etTransactionAmount.setOnClickListener {
             val calculatorFragment = CalculatorFragment()
             calculatorFragment.setCalculatorResultListener { result ->
+                Log.d("TransactionActivity", "Received calculator result: $result") // <-- ADD THIS LINE
                 binding.etTransactionAmount.setText(result)
             }
             calculatorFragment.show(supportFragmentManager, "calculator")
-
-        }
         }
 
+    }
 
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

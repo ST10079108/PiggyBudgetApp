@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.fake.piggybudgetapp.R
+import android.util.Log
 import net.objecthunter.exp4j.ExpressionBuilder
 
 class CalculatorFragment : DialogFragment() {
@@ -55,7 +56,12 @@ class CalculatorFragment : DialogFragment() {
                 resultTextView.text = ""
             }
             "Done" -> {
-                calculatorResultListener?.invoke(resultTextView.text.toString())
+                if (resultTextView.text.isNullOrBlank()) {
+                    evaluateExpression()
+                }
+                val result = resultTextView.text.toString()
+                Log.d("CalculatorFragment", "Sending result: $result")
+                calculatorResultListener?.invoke(result)
                 dismiss()
             }
             else -> {
