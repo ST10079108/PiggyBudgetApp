@@ -48,18 +48,18 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage.ktx)
-    implementation ("com.github.bumptech.glide:glide:4.16.0")
-    kapt ("com.github.bumptech.glide:compiler:4.16.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 //    implementation(libs.androidx.ui.text.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation ("androidx.drawerlayout:drawerlayout:1.2.0")
-    implementation ("com.google.android.material:material:1.11.0")
+    implementation("androidx.drawerlayout:drawerlayout:1.2.0")
+    implementation("com.google.android.material:material:1.11.0")
 
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
-    implementation ("com.google.firebase:firebase-storage-ktx")
-    implementation ("net.objecthunter:exp4j:0.4.8")
+    implementation("com.google.firebase:firebase-storage-ktx")
+    implementation("net.objecthunter:exp4j:0.4.8")
 }
