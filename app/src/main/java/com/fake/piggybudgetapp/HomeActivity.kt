@@ -69,7 +69,7 @@ class HomeActivity : AppCompatActivity() {
             }
             R.id.nav_home -> true
             R.id.nav_budget -> {
-                val intent = Intent(this, BudgetActivity::class.java)
+                val intent = Intent(this, BudgetHistory::class.java)
                 startActivity(intent)
                 true
             }

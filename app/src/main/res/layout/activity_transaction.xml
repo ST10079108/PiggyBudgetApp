@@ -23,7 +23,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="40dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -275,11 +275,15 @@
             android:scaleType="centerCrop"
             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
         <Button
             android:id="@+id/btnAddTransaction"
-            android:layout_width="100dp"
+            android:layout_width="175dp"
             android:layout_height="50dp"
-            android:text="Add" />
+            android:text="Add Transaction" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

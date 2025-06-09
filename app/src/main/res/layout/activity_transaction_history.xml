@@ -21,8 +21,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Space
-            android:layout_width="wrap_content"
-            android:layout_height="15dp" />
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -44,7 +44,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,14 +62,19 @@
 
                     <Button
                         android:id="@+id/btnDisplayAll"
-                        android:layout_width="130dp"
+                        android:layout_width="160dp"
                         android:layout_height="match_parent"
                         android:text="All"
                         android:textSize="15sp" />
 
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
                     <Button
                         android:id="@+id/btnDisplaySearchForm"
-                        android:layout_width="130dp"
+                        android:layout_width="160dp"
                         android:layout_height="match_parent"
                         android:text="Search"
                         android:textSize="15sp" />
@@ -148,6 +154,8 @@
                     android:id="@+id/recyclerViewTransaction"
                     android:layout_width="387dp"
                     android:layout_height="563dp"
+                    android:layout_gravity="center_horizontal"
+                    android:clipToPadding="false"
                     tools:listitem="@layout/item_transaction" />
 
                 <Button
@@ -174,7 +182,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btnTransactionsAdd"
+            android:id="@+id/btnAddScreen"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:paddingLeft="0dp"

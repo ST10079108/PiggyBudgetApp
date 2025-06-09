@@ -50,7 +50,7 @@ class ProfileActivity : AppCompatActivity() {
                 item -> when (item.itemId) {
             R.id.nav_stats -> true
             R.id.nav_transactions -> {
-                val intent = Intent(this, TransactionActivity::class.java)
+                val intent = Intent(this, TransactionHistory::class.java)
                 startActivity(intent)
                 true
             }
@@ -60,7 +60,7 @@ class ProfileActivity : AppCompatActivity() {
                 true
             }
             R.id.nav_budget -> {
-                val intent = Intent(this, BudgetActivity::class.java)
+                val intent = Intent(this, BudgetHistory::class.java)
                 startActivity(intent)
                 true
             }

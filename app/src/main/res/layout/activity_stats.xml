@@ -60,14 +60,19 @@
 
                     <Button
                         android:id="@+id/btnDisplayAll"
-                        android:layout_width="130dp"
+                        android:layout_width="160dp"
                         android:layout_height="match_parent"
                         android:text="All"
                         android:textSize="15sp" />
 
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
                     <Button
                         android:id="@+id/btnDisplaySearchForm"
-                        android:layout_width="130dp"
+                        android:layout_width="160dp"
                         android:layout_height="match_parent"
                         android:text="Search"
                         android:textSize="15sp" />

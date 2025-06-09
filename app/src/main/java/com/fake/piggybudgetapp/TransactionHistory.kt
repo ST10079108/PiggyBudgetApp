@@ -64,7 +64,7 @@ class TransactionHistory : AppCompatActivity() {
                 true
             }
             R.id.nav_budget -> {
-                val intent = Intent(this, BudgetActivity::class.java)
+                val intent = Intent(this, BudgetHistory::class.java)
                 startActivity(intent)
                 true
             }
@@ -77,7 +77,7 @@ class TransactionHistory : AppCompatActivity() {
         }
         }
 
-        binding.btnTransactionsAdd.setOnClickListener{
+        binding.btnAddScreen.setOnClickListener{
             val intent = Intent(this, TransactionActivity::class.java)
             startActivity(intent)
             true
