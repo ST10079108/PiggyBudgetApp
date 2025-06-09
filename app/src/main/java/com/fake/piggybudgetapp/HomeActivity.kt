@@ -1,6 +1,8 @@
 package com.fake.piggybudgetapp
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -99,7 +101,7 @@ class HomeActivity : AppCompatActivity() {
             binding.cvGoal.visibility = View.VISIBLE
             }
         }
-
+        updateGoalProgressBar()
         loadAchievements()
 
         binding.btnDone.setOnClickListener {
@@ -154,6 +156,7 @@ class HomeActivity : AppCompatActivity() {
                 binding.tvBalanceAmount.text = "R ${(inTotal - exTotal)}"
             }
         }
+        updateGoalProgressBar()
         loadAchievements()
     } //end of onCreate
 
@@ -215,6 +218,36 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun updateGoalProgressBar(){
+        FirebaseDbHelper.getAllGoals { goals ->
+
+            FirebaseDbHelper.getAllTransactions { transList ->
+                var exTotal = 0.0
+                var inTotal = 0.0
+                for (i in transList) {
+                    when (i.type) {
+                        "Expense" -> exTotal += i.amount
+                        "Income"  -> inTotal += i.amount
+                    }
+                }
+                runOnUiThread {
+                    val progress = exTotal.toInt()
+                    val max = goals.last().maximumAmount.toInt()
+
+                    binding.progressBar2.max = max
+                    binding.progressBar2.progress = progress
+
+
+                    if (progress >= max) {
+                        binding.progressBar2.progressTintList = ColorStateList.valueOf(Color.RED)
+                    } else {
+                        binding.progressBar2.progressTintList = ColorStateList.valueOf(Color.GREEN)
+                    }
+                }
+            }
+
+        }
+    }
     private fun showAchievementDialog(achievement: String) {
         AlertDialog.Builder(this)
             .setTitle("Achievement Unlocked!")
