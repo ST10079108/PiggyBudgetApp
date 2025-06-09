@@ -151,7 +151,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewCategoryTotals"
                     android:layout_width="300dp"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
                     tools:listitem="@layout/item_category_totals" />
 
                 <com.github.mikephil.charting.charts.BarChart

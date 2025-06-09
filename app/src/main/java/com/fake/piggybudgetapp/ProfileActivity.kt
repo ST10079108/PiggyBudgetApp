@@ -48,7 +48,11 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.navbar.setOnItemSelectedListener {
                 item -> when (item.itemId) {
-            R.id.nav_stats -> true
+            R.id.nav_stats -> {
+                val intent = Intent(this, StatsActivity::class.java)
+                startActivity(intent)
+                true
+            }
             R.id.nav_transactions -> {
                 val intent = Intent(this, TransactionHistory::class.java)
                 startActivity(intent)
@@ -64,11 +68,7 @@ class ProfileActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-            R.id.nav_profile -> {
-                val intent = Intent(this, ProfileActivity::class.java)
-                startActivity(intent)
-                true
-            }
+            R.id.nav_profile -> true
             else -> false
         }
         }

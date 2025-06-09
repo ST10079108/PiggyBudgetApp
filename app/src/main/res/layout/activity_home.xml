@@ -285,7 +285,7 @@
                                         android:paddingBottom="15dp" />
 
                                     <TextView
-                                        android:id="@+id/textView6"
+                                        android:id="@+id/tvGoalProgress1"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_horizontal"
@@ -295,7 +295,7 @@
                                         android:textSize="16sp" />
 
                                     <TextView
-                                        android:id="@+id/textView7"
+                                        android:id="@+id/tvGoalProgress2"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:gravity="center_horizontal"
