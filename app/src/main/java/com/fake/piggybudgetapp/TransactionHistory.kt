@@ -48,7 +48,7 @@ class TransactionHistory : AppCompatActivity() {
             insets
         }
 
-        navBar.selectedItemId = R.id.nav_home
+        navBar.selectedItemId = R.id.nav_transactions
 
         binding.navbar.setOnItemSelectedListener {
                 item -> when (item.itemId) {

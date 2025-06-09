@@ -54,6 +54,8 @@ class StatsActivity : AppCompatActivity() {
             insets
         }
 
+        navBar.selectedItemId = R.id.nav_stats
+
         binding.navbar.setOnItemSelectedListener {
                 item -> when (item.itemId) {
             R.id.nav_stats -> true

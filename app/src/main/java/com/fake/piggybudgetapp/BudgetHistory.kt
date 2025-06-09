@@ -47,7 +47,7 @@ class BudgetHistory : AppCompatActivity() {
             insets
         }
 
-        navBar.selectedItemId = R.id.nav_profile
+        navBar.selectedItemId = R.id.nav_budget
 
         binding.navbar.setOnItemSelectedListener {
                 item -> when (item.itemId) {
