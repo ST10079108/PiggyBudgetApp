@@ -102,6 +102,10 @@ class HomeActivity : AppCompatActivity() {
 
         loadAchievements()
 
+        binding.btnDone.setOnClickListener {
+            binding.cvPiggy.visibility = View.GONE
+        }
+
         binding.btnSaveGoal.setOnClickListener{
             //Get user input
             val gmin = binding.etMin.text.toString().trim().toDoubleOrNull() ?: 0.0

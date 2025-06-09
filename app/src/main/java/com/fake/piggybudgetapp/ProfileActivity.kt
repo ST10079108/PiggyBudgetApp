@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -72,6 +73,12 @@ class ProfileActivity : AppCompatActivity() {
         }
         }
 
+        binding.btnLogout.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+            finish()
+        }
         lifecycleScope.launch {
             FirebaseDbHelper.getAllUsers{
                 allUsers ->

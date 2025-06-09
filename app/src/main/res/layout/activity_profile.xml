@@ -101,7 +101,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/btn_logout"
+            android:id="@+id/btnLogout"
             android:layout_width="160dp"
             android:layout_height="65dp"
             android:text="Log out" />
