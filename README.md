@@ -43,4 +43,7 @@ StackOverflow (2017) How insert image in room persistence library, Stack Overflo
 GeeksforGeeks (2022) Android - Create BarChart with Kotlin, GeeksforGeeks. Retrieved from: https://www.geeksforgeeks.org/android-create-barchart-with-kotlin/ 
 GeeksforGeeks (2022) Android - Upload an image on Firebase Storage with Kotlin, GeeksforGeeks. Retrieved from: https://www.geeksforgeeks.org/android-upload-an-image-on-firebase-storage-with-kotlin/ 
 Mohsen Mashkour, 2023. Passing the data from the fragment to the activity using Interface - Intent. Android studio | Kotlin. Retrieved from: https://youtu.be/HkOnY3Lf9q0?si=AImlaB7Gv4_BH2-Y
+The IIE. 2025. PROG7313: Module Manual. The Independent Institute of Education: Unpublished
+Stack Overflow user nll (2020, May 18). Fill spinner with Room Database. Stack Overflow. https://stackoverflow.com/questions/61875405/fill-spinner-with-room-database
+OpenAI. 2025. Chat-GPT (Version 4-turbo). [Large language model]. Available at: https://chat.openai.com/ [Accessed: 2 May 2024].
 
