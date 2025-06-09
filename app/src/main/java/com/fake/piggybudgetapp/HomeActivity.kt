@@ -240,8 +240,12 @@ class HomeActivity : AppCompatActivity() {
 
                     if (progress >= max) {
                         binding.progressBar2.progressTintList = ColorStateList.valueOf(Color.RED)
+                        binding.tvGoalProgress1.text = "Unfortunately you have gone over your set goal, dont worry though, there is always next time."
+                        binding.tvGoalProgress1.setTextColor(Color.RED)
                     } else {
                         binding.progressBar2.progressTintList = ColorStateList.valueOf(Color.GREEN)
+                        binding.tvGoalProgress1.text = "Above is your goal progression, it displays how much of your total goal you've spent so far. "
+                        binding.tvGoalProgress1.setTextColor(Color.BLACK)
                     }
                 }
             }

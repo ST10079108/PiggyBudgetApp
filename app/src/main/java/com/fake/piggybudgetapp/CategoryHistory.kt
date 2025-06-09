@@ -39,6 +39,12 @@ class CategoryHistory : AppCompatActivity() {
 
         loadCategories()
 
+        binding.btnAddCategoryPage.setOnClickListener{
+            val intent = Intent(this, CategoryActivity::class.java)
+            startActivity(intent)
+            true
+        }
+
         binding.btnClearHistory.setOnClickListener {
             FirebaseDbHelper.deleteAllCategories {
                 loadCategories()

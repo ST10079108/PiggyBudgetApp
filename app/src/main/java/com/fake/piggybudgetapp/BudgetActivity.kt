@@ -2,6 +2,8 @@ package com.fake.piggybudgetapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
@@ -12,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.fake.piggybudgetapp.database.FirebaseDbHelper
 import com.fake.piggybudgetapp.databinding.ActivityBudgetBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 class BudgetActivity : AppCompatActivity() {
@@ -23,8 +26,57 @@ class BudgetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        // Hide phone's ui
+        window.setDecorFitsSystemWindows(false)
+        window.insetsController?.let { controller ->
+            controller.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+            controller.systemBarsBehavior =
+                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+
         binding = ActivityBudgetBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Stop bottomnavigationbar from auto adding padding on startup
+        val navBar = findViewById<BottomNavigationView>(R.id.navbar)
+        navBar.setOnApplyWindowInsetsListener { view, insets ->
+            view.setPadding(view.paddingLeft, view.paddingTop, view.paddingRight, 0)
+            insets
+        }
+
+        navBar.selectedItemId = R.id.nav_budget
+
+        binding.navbar.setOnItemSelectedListener {
+                item -> when (item.itemId) {
+            R.id.nav_stats -> {
+                val intent = Intent(this, StatsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_transactions -> {
+                val intent = Intent(this, TransactionHistory::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_home -> {
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_budget -> {
+                val intent = Intent(this, BudgetHistory::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_profile -> {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> false
+        }
+        }
 
         catResultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -66,10 +118,6 @@ class BudgetActivity : AppCompatActivity() {
             binding.etBudgetName.setText("")
         }
 
-        binding.btnMyBudgets.setOnClickListener {
-            val intent = Intent(this, BudgetHistory::class.java)
-            startActivity(intent)
-        }
         binding.btnSelectCategory.setOnClickListener {
             val intent = Intent(this, CategoryHistory::class.java)
             catResultLauncher.launch(intent)

@@ -52,7 +52,7 @@ class BudgetHistory : AppCompatActivity() {
         binding.navbar.setOnItemSelectedListener {
                 item -> when (item.itemId) {
             R.id.nav_stats -> {
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, StatsActivity::class.java)
                 startActivity(intent)
                 true
             }
