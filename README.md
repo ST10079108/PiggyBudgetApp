@@ -26,7 +26,7 @@ Username: User
 Password: U4
 
 ## Youtube video link
-
+https://youtu.be/y2rVGHUtfgo?si=VmR-2gubAMmpwgyl
 
 ## References
 GeeksForGeeks. (2022, December 13). Bottom Navigation Bar in Android Using Kotlin. Retrieved from Geeksforgeeks: https://www.geeksforgeeks.org/bottom-navigation-bar-in-android-using-kotlin/
