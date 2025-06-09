@@ -2,7 +2,12 @@
 
 The Piggy Budget App is a Kotlin-based Android budgeting application that allows users to track income and expenses, categorize transactions, and calculate amounts using a built-in calculator.
 
-# Directions For Use
+## Members
+Michel Musangu – ST10079108 
+Nomvuselelo Mlambo – ST10264503 
+William Mcpetrie – ST10263164
+
+## Directions For Use
 1.	clone github repository to IDE
 2.	open project
 3.	navigate to manage devices
