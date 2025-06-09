@@ -37,4 +37,5 @@ StackOverflow (2011) How can I hide/show an element when a button is pressed?, S
 StackOverflow (2017) How insert image in room persistence library, Stack Overflow. Retrieved from: https://stackoverflow.com/questions/46337519/how-insert-image-in-room-persistence-library 
 GeeksforGeeks (2022) Android - Create BarChart with Kotlin, GeeksforGeeks. Retrieved from: https://www.geeksforgeeks.org/android-create-barchart-with-kotlin/ 
 GeeksforGeeks (2022) Android - Upload an image on Firebase Storage with Kotlin, GeeksforGeeks. Retrieved from: https://www.geeksforgeeks.org/android-upload-an-image-on-firebase-storage-with-kotlin/ 
+Mohsen Mashkour, 2023. Passing the data from the fragment to the activity using Interface - Intent. Android studio | Kotlin. Retrieved from: https://youtu.be/HkOnY3Lf9q0?si=AImlaB7Gv4_BH2-Y
 
