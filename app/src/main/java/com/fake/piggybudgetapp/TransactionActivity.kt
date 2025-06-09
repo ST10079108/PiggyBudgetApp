@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
@@ -14,8 +15,11 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.fake.piggybudgetapp.database.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.fake.piggybudgetapp.calculator.CalculatorFragment
 import com.fake.piggybudgetapp.databinding.ActivityTransactionBinding
 import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
@@ -39,6 +43,8 @@ class TransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
             binding.ivSelectedImage.setImageBitmap(bitmap)
         }
     }
+
+
 
     private var transaction = TransactionEntity( "", 0.0, "", "", null, "", "")
     private var types = arrayOf(
@@ -86,12 +92,12 @@ class TransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
         binding.btnAddTransaction.setOnClickListener {
             //Get user input
-            var tType = binding.spType.selectedItem.toString().trim()
-            var tAmount = binding.etTransactionAmount.text.toString().trim().toDoubleOrNull() ?: 0.0
-            var tDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-            var tCategory = binding.etCategory.text.toString().trim()
-            var tDescription = binding.etDescription.text.toString().trim()
-            var tFrequency = binding.spRecurrence.selectedItem.toString().trim()
+            val tType = binding.spType.selectedItem.toString().trim()
+            val tAmount = binding.etTransactionAmount.text.toString().trim().toDoubleOrNull() ?: 0.0
+            val tDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            val tCategory = binding.etCategory.text.toString().trim()
+            val tDescription = binding.etDescription.text.toString().trim()
+            val tFrequency = binding.spRecurrence.selectedItem.toString().trim()
 
             if (tType.isEmpty() || tAmount == 0.0 || tDate.isEmpty() || tCategory.isEmpty() || tDescription.isEmpty() ||tFrequency.isEmpty() ) {
                 Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT)
@@ -138,8 +144,17 @@ class TransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         binding.btnSelectImage.setOnClickListener {
             pickImageLauncher.launch("image/*")
         }
+        binding.etTransactionAmount.setOnClickListener {
+            val calculatorFragment = CalculatorFragment()
+            calculatorFragment.setCalculatorResultListener { result ->
+                binding.etTransactionAmount.setText(result)
+            }
+            calculatorFragment.show(supportFragmentManager, "calculator")
 
-    }
+        }
+        }
+
+
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (parent?.id) {
@@ -149,4 +164,6 @@ class TransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+
 }
