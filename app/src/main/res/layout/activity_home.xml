@@ -271,6 +271,12 @@
                                         android:textColor="@color/piggy_black"
                                         android:textSize="20sp" />
 
+                                    <ImageView
+                                        android:id="@+id/ivGoal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="100dp"
+                                        app:srcCompat="@drawable/laugh" />
+
                                     <Space
                                         android:layout_width="match_parent"
                                         android:layout_height="10dp" />

@@ -22,7 +22,7 @@
 
         <TextView
             android:id="@+id/tvCategoryName"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:text="Category Name"
             android:textSize="18sp"
@@ -30,8 +30,9 @@
 
         <TextView
             android:id="@+id/tvCategoryTotal"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:text="Category Total"
             android:textSize="18sp"
             android:textStyle="bold" />
