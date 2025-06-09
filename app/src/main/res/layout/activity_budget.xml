@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/piggy_pink"
     android:orientation="vertical"
     tools:context=".BudgetActivity">
 
@@ -23,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView"
@@ -94,9 +95,6 @@
                     android:paddingLeft="10dp" />
 
 
-
-
-
                 <TextView
                     android:id="@+id/textView26"
                     android:layout_width="262dp"
@@ -113,48 +111,48 @@
                     android:layout_height="52dp"
                     android:layout_marginBottom="15dp"
 
-                    android:ems="10"
-                    android:hint="Groceries"
-                    android:focusable="false"
                     android:clickable="true"
-                    android:inputType="none"
                     android:cursorVisible="false"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:hint="Groceries"
+                    android:inputType="none"
                     android:paddingLeft="10dp" />
 
 
                 <Button
                     android:id="@+id/btnSelectCategory"
-                    android:layout_width="266dp"
-                    android:layout_height="64dp"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
 
                     android:text="Select Category"
                     android:textSize="15sp" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/textView222"-->
-<!--                    android:layout_width="262dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Start"-->
-<!--                    android:textAlignment="textStart"-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/textView222"-->
+                <!--                    android:layout_width="262dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="Start"-->
+                <!--                    android:textAlignment="textStart"-->
 
-<!--                    android:textSize="16sp"-->
-<!--                    android:textStyle="bold" />-->
+                <!--                    android:textSize="16sp"-->
+                <!--                    android:textStyle="bold" />-->
 
-<!--                <EditText-->
-<!--                    android:id="@+id/editTextText4"-->
-<!--                    android:layout_width="266dp"-->
-<!--                    android:layout_height="52dp"-->
-<!--                    android:layout_marginBottom="15dp"-->
+                <!--                <EditText-->
+                <!--                    android:id="@+id/editTextText4"-->
+                <!--                    android:layout_width="266dp"-->
+                <!--                    android:layout_height="52dp"-->
+                <!--                    android:layout_marginBottom="15dp"-->
 
-<!--                    android:ems="10"-->
-<!--                    android:hint="january"-->
-<!--                    android:inputType="text"-->
-<!--                    android:paddingLeft="10dp" />-->
+                <!--                    android:ems="10"-->
+                <!--                    android:hint="january"-->
+                <!--                    android:inputType="text"-->
+                <!--                    android:paddingLeft="10dp" />-->
 
                 <Button
                     android:id="@+id/btnAddBudget"
                     android:layout_width="180dp"
-                    android:layout_height="64dp"
+                    android:layout_height="60dp"
 
                     android:text="Add"
                     android:textSize="15sp" />
@@ -162,7 +160,7 @@
                 <Button
                     android:id="@+id/btnMyBudgets"
                     android:layout_width="180dp"
-                    android:layout_height="64dp"
+                    android:layout_height="60dp"
 
                     android:text="My Budgets"
                     android:textSize="15sp" />

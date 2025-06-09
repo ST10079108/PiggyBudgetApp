@@ -1,8 +1,11 @@
 package com.fake.piggybudgetapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +19,7 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,6 +38,48 @@ class StatsActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityStatsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Hide phone's ui
+        window.setDecorFitsSystemWindows(false)
+        window.insetsController?.let { controller ->
+            controller.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+            controller.systemBarsBehavior =
+                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+
+        // Stop bottomnavigationbar from auto adding padding on startup
+        val navBar = findViewById<BottomNavigationView>(R.id.navbar)
+        navBar.setOnApplyWindowInsetsListener { view, insets ->
+            view.setPadding(view.paddingLeft, view.paddingTop, view.paddingRight, 0)
+            insets
+        }
+
+        binding.navbar.setOnItemSelectedListener {
+                item -> when (item.itemId) {
+            R.id.nav_stats -> true
+            R.id.nav_transactions -> {
+                val intent = Intent(this, TransactionActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_home -> {
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_budget -> {
+                val intent = Intent(this, BudgetActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_profile -> {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> false
+        }
+        }
 
         categoryTotalsAdapter = CategoryTotalsAdapter(emptyList())
         binding.recyclerViewCategoryTotals.layoutManager = LinearLayoutManager(this)

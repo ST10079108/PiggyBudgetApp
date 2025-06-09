@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="@color/piggy_pink"
     android:orientation="vertical"
     tools:context=".CategoryActivity">
 
@@ -25,8 +26,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            >
+            android:layout_height="45dp">
 
             <TextView
                 android:id="@+id/textView22"
@@ -67,7 +67,7 @@
         <Button
             android:id="@+id/btnAddCategory"
             android:layout_width="180dp"
-            android:layout_height="64dp"
+            android:layout_height="50dp"
 
             android:text="Add"
             android:textSize="15sp" />
@@ -75,12 +75,11 @@
         <Button
             android:id="@+id/btnMyCategories"
             android:layout_width="180dp"
-            android:layout_height="64dp"
+            android:layout_height="50dp"
 
             android:text="My Categories"
             android:textSize="15sp" />
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

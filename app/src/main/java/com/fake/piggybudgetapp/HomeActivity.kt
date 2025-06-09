@@ -19,6 +19,9 @@ import com.fake.piggybudgetapp.databinding.ActivityHomeBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.view.WindowInsets
+import android.view.WindowInsetsController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 
@@ -30,49 +33,53 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        // Hide phone's ui
+        window.setDecorFitsSystemWindows(false)
+        window.insetsController?.let { controller ->
+            controller.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+            controller.systemBarsBehavior =
+                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+
         // View binding
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-        actionBarDrawerToggle = ActionBarDrawerToggle(
-            this, binding.drawerLayout, binding.toolbar, R.string.nav_open, R.string.nav_close
-        )
+        // Stop bottomnavigationbar from auto adding padding on startup
+        val navBar = findViewById<BottomNavigationView>(R.id.navbar)
+        navBar.setOnApplyWindowInsetsListener { view, insets ->
+            view.setPadding(view.paddingLeft, view.paddingTop, view.paddingRight, 0)
+            insets
+        }
 
-        binding.drawerLayout.addDrawerListener(actionBarDrawerToggle)
-        actionBarDrawerToggle.syncState()
+        navBar.selectedItemId = R.id.nav_home
 
-        // Navigation menu items
-        binding.navigationView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.nav_home -> {
-                    Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
-                }
-                R.id.nav_budgets -> {
-                    startActivity(Intent(this, BudgetActivity::class.java))
-                }
-                R.id.nav_transactions -> {
-                    startActivity(Intent(this, TransactionActivity::class.java))
-                }
-                R.id.nav_categories -> {
-                    startActivity(Intent(this, CategoryActivity::class.java))
-                }
-                R.id.nav_profile -> {
-                    startActivity(Intent(this, ProfileActivity::class.java))
-                }
-                R.id.nav_stats -> {
-                    Toast.makeText(this, "Stats clicked", Toast.LENGTH_SHORT).show()
-                }
-                R.id.nav_logout -> {
-                    Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
-                    finish()
-                }
-                R.id.nav_cat_totals -> {
-                    startActivity(Intent(this, StatsActivity::class.java))
-                }
+        binding.navbar.setOnItemSelectedListener {
+                item -> when (item.itemId) {
+            R.id.nav_stats -> {
+                val intent = Intent(this, StatsActivity::class.java)
+                startActivity(intent)
+                true
             }
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-            true
+            R.id.nav_transactions -> {
+                val intent = Intent(this, TransactionHistory::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_home -> true
+            R.id.nav_budget -> {
+                val intent = Intent(this, BudgetActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.nav_profile -> {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> false
+        }
         }
 
         val userFromPrefs = JsonUtils.getUserFromPreferences(this)
